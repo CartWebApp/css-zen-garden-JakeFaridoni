@@ -1,1 +1,62 @@
-/* Empty file for template. Remember to edit only this file and not the HTML file */
+body {
+    background-color: #f7fff7;
+}
+
+.page-wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.intro > header {
+    width: fit-content;
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+    border-color: black;
+    border-style: none solid solid none;
+    border-width: 0, 5px, 5px, 0;
+    float: left;
+}
+
+.intro > header > h1 {
+    font-size: 45px;
+    padding-left: 5%;
+}
+
+.intro > header > h2 {
+    font-size: 25px;
+    padding-left: 5%;
+}
+
+[role="article"] {
+    margin: 20px;
+    align-items: left;
+    text-align: left;
+    border-bottom: black solid 2px;
+    width: fit-content;
+    height: fit-content;
+    float: left;
+}
+
+.summary {
+    width: 20%;
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+    float: left;
+}
+
+.preamble {
+    width: fit-content;
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+    float: left;
+}
+
+a {
+    font-style: oblique;
+    text-decoration: none;
+    color: black;
+    -webkit-text-stroke-width: 1px;
+}
