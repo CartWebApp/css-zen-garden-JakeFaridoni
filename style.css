@@ -1,62 +1,94 @@
 body {
-    background-color: #f7fff7;
+    background-color: #fffeee;
+    overflow-x: hidden;
+    /* cursor: wait; */
+}
+
+
+a {
+    color: #ac6514;
+    text-decoration: underline;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #b47a38;
+    font-size: 105%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+abbr {
+    color: #b97e39;
+    text-decoration: none;
+    border-bottom: 1px dotted #b97e39;
+    cursor: help;
 }
 
 .page-wrapper {
-    width: 90%;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 90%;
 }
 
-.intro > header {
-    width: fit-content;
-    text-align: left;
-    margin-bottom: 20px;
-    position: relative;
-    border-color: black;
-    border-style: none solid solid none;
-    border-width: 0, 5px, 5px, 0;
-    float: left;
+section.intro {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.intro > header > h1 {
-    font-size: 45px;
-    padding-left: 5%;
+section.intro > header {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 100%;
+    width: 100vw;
 }
 
-.intro > header > h2 {
-    font-size: 25px;
-    padding-left: 5%;
-}
-
-[role="article"] {
+section.intro > header > h1 {
     margin: 20px;
-    align-items: left;
-    text-align: left;
-    border-bottom: black solid 2px;
-    width: fit-content;
+    padding: 10px;
     height: fit-content;
-    float: left;
+    font-size: 30px;
+    border-style: solid;
+    border-color: #000;
+    border-width: 0 2px 2px 0;
+    flex-basis: 1%;
+}
+
+section.intro > header > h2 {
+    width: 25%;
+    padding: 20px;
+    font-size: 40px;
+    align-self: flex-start;
 }
 
 .summary {
-    width: 20%;
-    text-align: left;
-    margin-bottom: 20px;
-    position: relative;
-    float: left;
+    border-style: solid;
+    border-width: 0 0 0 1px;
+    padding: 10px;
 }
 
-.preamble {
-    width: fit-content;
-    text-align: left;
-    margin-bottom: 20px;
-    position: relative;
-    float: left;
+#zen-supporting {
+    display: inherit;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-a {
-    font-style: oblique;
-    text-decoration: none;
-    color: black;
-    -webkit-text-stroke-width: 1px;
+* [role="article"] {
+    flex-basis: 50%;
 }
+
+* [role="article"] > p {
+    width: 50%;
+}
+
+aside {
+    position: absolute;
+    align-self: flex-end;
+    flex-basis: 50%;
+}
+
