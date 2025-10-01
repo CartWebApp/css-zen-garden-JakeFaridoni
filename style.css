@@ -1,7 +1,6 @@
 body {
     background-color: #fffeee;
     overflow-x: hidden;
-    /* cursor: wait; */
 }
 
 
@@ -18,7 +17,7 @@ a:hover {
 }
 
 ul {
-    list-style-type: none;
+    list-style-type: upper-roman;
 }
 
 abbr {
@@ -29,66 +28,91 @@ abbr {
 }
 
 .page-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    height: 90%;
+    display: grid;
+    grid-template-areas:
+    "intro intro"
+    "aside main"
+    "footer footer";
+    grid-template-columns: 1fr 4fr;
+    gap:  0 30px;
 }
 
-section.intro {
-    display: flex;
-    flex-wrap: wrap;
+.page-wrapper .intro {
+    grid-area: intro;
+    display: grid;
+    grid-template-areas: "header" "summary" "preamble";
+    margin-bottom: 40px;
+    align-items: end;
+    border-bottom: black 1px solid;
 }
 
-section.intro > header {
-    display: flex;
-    justify-content: space-between;
-    flex-basis: 100%;
-    width: 100vw;
+.intro > header {
+    display: grid;
+    grid-template-areas: "logo title";
+    grid-template-columns: 1fr 2fr;
+    justify-items: end;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-section.intro > header > h1 {
-    margin: 20px;
-    padding: 10px;
-    height: fit-content;
-    font-size: 30px;
+.intro > header > h1 {
+    grid-area: logo;
+    justify-self: start;
     border-style: solid;
-    border-color: #000;
     border-width: 0 2px 2px 0;
-    flex-basis: 1%;
-}
-
-section.intro > header > h2 {
-    width: 25%;
-    padding: 20px;
-    font-size: 40px;
-    align-self: flex-start;
-}
-
-.summary {
-    border-style: solid;
-    border-width: 0 0 0 1px;
+    width: min-content;
     padding: 10px;
 }
 
-#zen-supporting {
-    display: inherit;
-    flex-direction: column;
-    flex-wrap: wrap;
+.intro > header > h2 {
+    grid-area: title;
+    font-size: 30px;
+    width: minmax(min-content, max-content);
+    padding-right: 10%;
+    border-right: black 1px solid;
 }
 
-* [role="article"] {
-    flex-basis: 50%;
-}
-
-* [role="article"] > p {
+.intro > .summary {
+    grid-area: summary;
     width: 50%;
+    font-size: 15px;
+    translate: 0 -70%;
+    justify-self: end;
+    text-align: right;
+    border-right: black 1px solid;
+    padding-right: 20px;
 }
 
-aside {
-    position: absolute;
-    align-self: flex-end;
-    flex-basis: 50%;
+.intro > .preamble {
+    grid-area: preamble;
+    text-align: center;
 }
 
+.sidebar {
+    grid-area: aside;
+    padding-left: 20px;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+.sidebar ul {
+    margin-left: 25px;
+    padding-left: 50px;
+    border-left: black 1px solid;
+    height: fit-content;
+}
+
+.page-wrapper #zen-supporting {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
