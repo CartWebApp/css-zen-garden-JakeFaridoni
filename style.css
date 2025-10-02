@@ -43,7 +43,6 @@ abbr {
     grid-template-areas: "header" "summary" "preamble";
     margin-bottom: 40px;
     align-items: end;
-    border-bottom: black 1px solid;
 }
 
 .intro > header {
@@ -70,6 +69,7 @@ abbr {
     width: minmax(min-content, max-content);
     padding-right: 10%;
     border-right: black 1px solid;
+    margin-right: 20px;
 }
 
 .intro > .summary {
@@ -81,11 +81,23 @@ abbr {
     text-align: right;
     border-right: black 1px solid;
     padding-right: 20px;
+    margin-right: 20px;
 }
 
 .intro > .preamble {
     grid-area: preamble;
-    text-align: center;
+    text-align: left;
+    width: 50%;
+    justify-self: center;
+    margin-right: 20px;
+    padding-right: 20px;
+}
+
+.intro > .preamble > h3 {
+    justify-self: center;
+    border-bottom: black 1px solid;
+    padding-bottom: 10px;
+    width: fit-content;
 }
 
 .sidebar {
