@@ -1,3 +1,7 @@
+* {
+    font-size: 20px;
+}
+
 body {
     background-color: #fffeee;
     overflow-x: hidden;
@@ -8,6 +12,10 @@ a {
     color: #ac6514;
     text-decoration: underline;
     transition: all 0.3s ease-in-out;
+}
+
+a:visited{
+    color: #7b480e;
 }
 
 a:hover {
@@ -25,6 +33,7 @@ abbr {
     text-decoration: none;
     border-bottom: 1px dotted #b97e39;
     cursor: help;
+    letter-spacing: 3px;
 }
 
 .page-wrapper {
@@ -43,7 +52,6 @@ abbr {
     grid-template-areas: "header" "summary" "preamble";
     margin-bottom: 40px;
     align-items: end;
-    border-bottom: black 1px solid;
 }
 
 .intro > header {
@@ -56,6 +64,7 @@ abbr {
 }
 
 .intro > header > h1 {
+    font-size: 30px;
     grid-area: logo;
     justify-self: start;
     border-style: solid;
@@ -65,27 +74,48 @@ abbr {
 }
 
 .intro > header > h2 {
+    font-size: 40px;
     grid-area: title;
-    font-size: 30px;
     width: minmax(min-content, max-content);
     padding-right: 10%;
-    border-right: black 1px solid;
+}
+
+.intro > header > h2 > abbr {
+    font-size: 40px;
 }
 
 .intro > .summary {
     grid-area: summary;
-    width: 50%;
-    font-size: 15px;
-    translate: 0 -70%;
+    width: 15%;
+    font-size: 20px;
     justify-self: end;
     text-align: right;
     border-right: black 1px solid;
-    padding-right: 20px;
+    padding-right: 40px;
+    margin-right: 10%;
 }
 
 .intro > .preamble {
     grid-area: preamble;
-    text-align: center;
+    text-align: left;
+    width: 50%;
+    margin-right: 5%;
+    padding-right: 20px;
+    justify-self: end;
+}
+
+.intro > .preamble > h3 {
+    text-align: end;
+    font-size: 35px;
+}
+
+.intro > .preamble > p {
+    justify-self: end;
+    width: 50%;
+    text-align: right;
+    margin-right: 5%;
+    padding-right: 20px;
+    border-right: black 1px solid;
 }
 
 .sidebar {
@@ -109,8 +139,50 @@ abbr {
     height: fit-content;
 }
 
-.page-wrapper #zen-supporting {
+.page-wrapper > #zen-supporting {
     grid-area: main;
+    display: grid;
+    grid-template-areas: "explanation" "participation" "benefits" "requirements";
+    justify-content: end;
+}
+
+.page-wrapper > #zen-supporting h3 {
+    text-align: end;
+    font-size: 30px;
+}
+
+.page-wrapper > #zen-supporting p {
+    text-align: right;
+    margin-right: 5%;
+    padding-right: 20px;
+    border-right: black 1px solid;
+    
+}
+
+#zen-explanation {
+    grid-area: explanation;
+}
+
+#zen-participation {
+    grid-area: participation;
+}
+
+#zen-benefits {
+    grid-area: benefits;
+}
+
+#zen-requirements {
+    grid-area: requirements;
+}
+
+#zen-supporting h3 {
+    justify-self: end;
+    font-size: 30px;
+}
+
+#zen-supporting p {
+    margin-left: 25px;
+    padding-left: 50px;
 }
 
 footer {
