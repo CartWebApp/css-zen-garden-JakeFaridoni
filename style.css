@@ -1,5 +1,22 @@
+:root {
+    --main-color: #b97e39;
+    --main-color-dark: #8c4e0f;
+    --main-color-light: #fffeee;
+    --accent-color: #ac6514;
+    --accent-color-dark: #6e3b0b;
+    --accent-color-light: #fff4d8;
+}
+
 * {
-    font-size: 20px;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+*:not(:empty)::selection {
+    background: #b97e39;
+    color: #fff;
 }
 
 body {
@@ -7,25 +24,43 @@ body {
     overflow-x: hidden;
 }
 
-
 a {
     color: #ac6514;
-    text-decoration: underline;
     transition: all 0.3s ease-in-out;
 }
 
-a:visited{
-    color: #7b480e;
+a:link {
+    text-decoration: underline;
 }
 
-a:hover {
-    text-decoration: underline;
+a:hover, abbr:hover {
     color: #b47a38;
     font-size: 105%;
 }
 
+a:active {
+    color: #8c4e0f;
+}
+
+a:visited {
+    color: #6e3b0b;
+    text-decoration: dotted underline;
+}
+
+a:focus {
+    border: 2px solid #b97e39;
+}
+
 ul {
     list-style-type: upper-roman;
+}
+
+li:nth-last-of-type(1) {
+    font-size: 15px;
+}
+
+li:nth-of-type(1) {
+    font-size: 15px;
 }
 
 abbr {
@@ -33,7 +68,7 @@ abbr {
     text-decoration: none;
     border-bottom: 1px dotted #b97e39;
     cursor: help;
-    letter-spacing: 3px;
+    transition: all 0.3s ease-in-out;
 }
 
 .page-wrapper {
@@ -46,7 +81,7 @@ abbr {
     gap:  0 30px;
 }
 
-.page-wrapper .intro {
+.page-wrapper #zen-intro {
     grid-area: intro;
     display: grid;
     grid-template-areas: "header" "summary" "preamble";
@@ -54,7 +89,16 @@ abbr {
     align-items: end;
 }
 
-.intro > header {
+.intro > header[role^="ban"] > h2 {
+    grid-area: title;
+    font-size: 30px;
+    width: minmax(min-content, max-content);
+    padding-right: 10%;
+    border-right: black 1px solid;
+    margin-right: 20px;
+}
+
+.intro > header[role*="nne"] {
     display: grid;
     grid-template-areas: "logo title";
     grid-template-columns: 1fr 2fr;
@@ -63,8 +107,7 @@ abbr {
     margin-bottom: 20px;
 }
 
-.intro > header > h1 {
-    font-size: 30px;
+.intro > header[role$="ner"] > h1 {
     grid-area: logo;
     justify-self: start;
     border-style: solid;
@@ -73,106 +116,134 @@ abbr {
     padding: 10px;
 }
 
-.intro > header > h2 {
-    font-size: 40px;
-    grid-area: title;
-    width: minmax(min-content, max-content);
-    padding-right: 10%;
-}
-
-.intro > header > h2 > abbr {
-    font-size: 40px;
-}
-
-.intro > .summary {
+.intro div.summary {
     grid-area: summary;
-    width: 25%;
-    font-size: 20px;
+    width: 50%;
+    font-size: 15px;
+    translate: 0 -70%;
     justify-self: end;
     text-align: right;
     border-right: black 1px solid;
-    padding-right: 40px;
-    margin-right: 10%;
+    padding-right: 20px;
+    margin-right: 20px;
 }
 
 .intro > .preamble {
     grid-area: preamble;
-    width: 50vw;
-    margin-right: 5%;
+    text-align: left;
+    width: 50%;
+    justify-self: center;
+    margin-right: 20px;
     padding-right: 20px;
 }
 
 .intro > .preamble > h3 {
     justify-self: center;
-    font-size: 35px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    width: fit-content;
 }
 
-.intro > .preamble > p {
+.intro > .preamble > h3::after {
+    content: "";
     justify-self: center;
-    width: 50%;
-    margin: 20px;
+    display: block;
+    border-bottom: black 1px solid;
+    width: 130%;
+    margin-top: 5px;
 }
 
-.sidebar {
+aside[role] {
     grid-area: aside;
     padding-left: 20px;
     height: fit-content;
 }
 
-.sidebar h3 {
+aside[role="complementary"] h3 {
     padding-top: 10px;
     margin-bottom: 10px;
 }
 
-.sidebar li {
+aside[role~="complementary"] li {
     margin-bottom: 10px;
 }
-.sidebar ul {
+aside[role|="complementary"] ul {
     margin-left: 25px;
     padding-left: 50px;
     border-left: black 1px solid;
     height: fit-content;
 }
 
-.page-wrapper > #zen-supporting {
+.page-wrapper .main.supporting {
     grid-area: main;
-    display: grid;
-    grid-template-areas: "explanation" "participation" "benefits" "requirements";
 }
 
-.page-wrapper > #zen-supporting h3 {
-    font-size: 30px;
+div + h3 {
+    font-size: 25px;
 }
 
-.page-wrapper > #zen-supporting p {
-    padding-left: 5%;
+h3:only-of-type {
+    margin-top: 20px;
 }
 
-#zen-explanation {
-    grid-area: explanation;
-}
-
-#zen-participation {
-    grid-area: participation;
-}
-
-#zen-benefits {
-    grid-area: benefits;
-}
-
-#zen-requirements {
-    grid-area: requirements;
-}
-
-#zen-supporting h3 {
-    font-size: 30px;
-}
-
-#zen-supporting p {
-    margin-left: 5%;
-    width: 50%;
+h3 ~ p, h3 ~ ul {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 18px;
 }
 
 footer {
+    justify-self: center;
     grid-area: footer;
+    text-align: center;
+    margin: 50px;
+}
+
+footer::before {
+    content: "";
+    justify-self: center;
+    display: block;
+    border-bottom: black 1px solid;
+    width: 130%;
+    margin-bottom: 15px;
+}
+
+p:first-child {
+    font-size: 15px;
+}
+
+p:nth-child(2)::first-letter {
+    font-size: 93%;
+    font-family: 'Georgia', serif;
+}
+
+p:nth-last-child(3)::first-letter {
+    font-size: 93%;
+    font-family: 'Georgia', serif;
+}
+
+p:last-child {
+    font-size: 17px;
+}
+
+#zen-supporting p:last-of-type {
+    margin-bottom: 55px;
+}
+
+p::first-line {
+    font-family: 'Georgia', serif;
+    font-size: 93%;
+}
+
+abbr:only-child {
+    letter-spacing: 3px;
+}
+
+h3::first-letter {
+    font-family: 'Georgia', serif;
+    font-size: 93%;
+}
+
+h3:first-of-type {
+    font-size: 120%;
 }
